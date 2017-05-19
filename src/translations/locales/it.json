@@ -1,0 +1,6 @@
+{
+  "app.count": "This thing has been clicked {counter, number} {counter, plural, one {time} other {times}}!",
+  "app.currentDate": "Today it is",
+  "app.inputThing": "Input a thing!",
+  "app.welcome": "Hello World"
+}

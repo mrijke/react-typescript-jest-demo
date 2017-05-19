@@ -5,9 +5,13 @@
   "author": "Jack Franklin",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --hot --inline",
     "lint": "tslint --project tsconfig.json",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "trans:compile": "tsc -p .  --target ES6 --module es6 --jsx preserve --outDir extracted",
+    "trans:extract": "babel  \"extracted/**/*.jsx\" -o /dev/null",
+    "trans:manage": "node scripts/translationRunner.js",
+    "trans": "yarn run --silent trans:compile && yarn run --silent trans:extract && yarn run trans:manage"
   },
   "jest": {
     "moduleFileExtensions": [
@@ -20,9 +24,9 @@
       "src"
     ],
     "collectCoverageFrom": [
-        "src/**/*.{ts,tsx,js}",
-        "!**/*.{spec,test}.{ts,tsx}",
-        "!**/__tests__/**"
+      "src/**/*.{ts,tsx,js}",
+      "!**/*.{spec,test}.{ts,tsx}",
+      "!**/__tests__/**"
     ],
     "transform": {
       "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
@@ -31,25 +35,32 @@
     "testRegex": "/*.spec.(ts|tsx|js)$"
   },
   "dependencies": {
-    "@types/jest": "^19.2.2",
-    "@types/react": "^15.0.22",
-    "@types/react-dom": "^15.5.0",
-    "@types/react-test-renderer": "^15.5.0",
-    "babel-core": "^6.24.1",
-    "babel-loader": "^7.0.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "jest": "^20.0.1",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "react-test-renderer": "^15.5.4",
-    "ts-jest": "^20.0.3",
-    "ts-loader": "^2.0.3",
-    "tslint": "^5.1.0",
-    "tslint-react": "^2.6.0",
+    "@types/jest": "19.2.3",
+    "@types/node": "7.0.18",
+    "@types/react": "15.0.24",
+    "@types/react-dom": "15.5.0",
+    "@types/react-intl": "2.2.8",
+    "@types/react-test-renderer": "15.5.0",
+    "babel-cli": "6.24.1",
+    "babel-core": "6.24.1",
+    "babel-loader": "7.0.0",
+    "babel-plugin-react-intl": "2.3.1",
+    "babel-preset-es2015": "6.24.1",
+    "babel-preset-react": "6.24.1",
+    "jest": "20.0.3",
+    "react": "15.5.4",
+    "react-dom": "15.5.4",
+    "react-intl": "2.3.0",
+    "react-intl-translations-manager": "5.0.0",
+    "react-test-renderer": "15.5.4",
+    "rimraf": "2.6.1",
+    "ts-jest": "20.0.4",
+    "ts-loader": "2.0.3",
+    "tslint": "5.2.0",
+    "tslint-react": "3.0.0",
     "typescript": "2.3",
-    "webpack": "^2.4.1",
-    "webpack-dev-server": "^2.4.4",
-    "webpack-notifier": "^1.5.0"
+    "webpack": "2.5.1",
+    "webpack-dev-server": "2.4.5",
+    "webpack-notifier": "1.5.0"
   }
 }

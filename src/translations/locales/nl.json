@@ -1,0 +1,6 @@
+{
+  "app.count": "Dit ding is {counter, number} {counter, plural, one {keer} other {keertjes}} aangeklikt!",
+  "app.currentDate": "Vandaag is het",
+  "app.inputThing": "Vul wat in!",
+  "app.welcome": "Hallo wereld"
+}

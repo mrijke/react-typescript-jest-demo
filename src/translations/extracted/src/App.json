@@ -1,0 +1,18 @@
+[
+  {
+    "id": "app.inputThing",
+    "defaultMessage": "Input a thing!"
+  },
+  {
+    "id": "app.welcome",
+    "defaultMessage": "Hello World"
+  },
+  {
+    "id": "app.currentDate",
+    "defaultMessage": "Today it is"
+  },
+  {
+    "id": "app.count",
+    "defaultMessage": "This thing has been clicked {counter, number} {counter, plural, one {time} other {times}}!"
+  }
+]
